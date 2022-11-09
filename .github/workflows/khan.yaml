@@ -1,0 +1,30 @@
+name: Pull request khan
+on: 
+  issue_comment:
+    types:
+      - created
+      - edited
+  discussion:
+    types: 
+    - created
+    - edited
+    - answered
+  pull_request:
+    types:
+    - opened
+    - edited
+    - synchronize
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: khan/pull-request-comment-trigger@v1.1.0
+        id: check
+        with:
+          trigger: 'run'
+          reaction: rocket
+        env:
+          GITHUB_TOKEN: '${{secrets.GH_PACKAGES_TOKEN}}'
+      - run: echo 'Found it!'
+        if: steps.check.outputs.triggered == 'true'
