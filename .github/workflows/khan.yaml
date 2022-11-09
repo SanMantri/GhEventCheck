@@ -22,8 +22,9 @@ jobs:
       - uses: khan/pull-request-comment-trigger@v1.1.0
         id: check
         with:
-          trigger: 'run'
+          trigger: 'RUN_TESTS'
           reaction: rocket
+          prefix_only: true
         env:
           GITHUB_TOKEN: '${{secrets.WORKFLOW_PERSONAL_TOKEN}}'
       - run: echo 'Found it!'
