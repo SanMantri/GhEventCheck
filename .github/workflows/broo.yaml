@@ -3,17 +3,10 @@ on:
   issue_comment:
     types:
       - created
-      - edited
-  discussion:
-    types: 
-    - created
-    - edited
-    - answered
   pull_request:
     types:
-    - opened
-    - edited
-    - synchronize
+      - opened
+      - edited
 jobs:
  job01:
    if: contains(github.event.comment.html_url, '/pull/')
