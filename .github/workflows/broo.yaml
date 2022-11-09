@@ -19,11 +19,7 @@ jobs:
    if: contains(github.event.comment.html_url, '/pull/')
    runs-on: ubuntu-latest
    steps:
-    - name: say hellpull
+    - name: triggered support
       if: contains(github.event.comment.body, '/support')
       run: |
-       echo say hellsupport
-    - name: test
-      if: contains(github.event.comment.body, '/test')
-      run: |
-       echo helltest
+       echo 'say hellsupport'
