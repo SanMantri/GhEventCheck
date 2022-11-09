@@ -17,7 +17,6 @@ on:
 
 jobs:
   runtest:
-    if: steps.check.outputs.triggered == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: khan/pull-request-comment-trigger@v1.1.0
@@ -29,3 +28,4 @@ jobs:
         env:
           GITHUB_TOKEN: '${{secrets.WORKFLOW_PERSONAL_TOKEN}}'
       - run: echo 'Found it!'
+    if: steps.check.outputs.triggered == 'true'
