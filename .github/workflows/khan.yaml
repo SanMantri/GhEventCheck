@@ -25,6 +25,6 @@ jobs:
           trigger: 'run'
           reaction: rocket
         env:
-          GITHUB_TOKEN: '${{secrets.GH_PACKAGES_TOKEN}}'
+          GITHUB_TOKEN: '${{secrets.WORKFLOW_PERSONAL_TOKEN}}'
       - run: echo 'Found it!'
         if: steps.check.outputs.triggered == 'true'
