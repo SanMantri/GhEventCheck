@@ -16,16 +16,16 @@ on:
     - synchronize
 
 jobs:
-  deploy:
+  runtest:
     runs-on: ubuntu-latest
     steps:
       - uses: khan/pull-request-comment-trigger@v1.1.0
         id: check
         with:
-          trigger: 'RUN_TESTS'
-          reaction: rocket
+          trigger: '#hello'
+          reaction: eyes
           prefix_only: true
         env:
           GITHUB_TOKEN: '${{secrets.WORKFLOW_PERSONAL_TOKEN}}'
-      - run: echo 'Found it!'
+      - run: echo Found it!
         if: steps.check.outputs.triggered == 'true'
